@@ -4,14 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+            background-image: url(login\ background.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        div{
+            display: grid;
+            place-items: center;
+            justify-content: center;
+        }
+        form{
+            
+           height: 520px;
+           width: 400px;
+           background-color: rgba(255,255,255,0.13);
+           position: absolute;
+           transform: translate(-50%,-50%);
+           top: 50%;
+           left: 50%;
+           border-radius: 10px;
+           backdrop-filter: blur(10px);
+           border: 2px solid rgba(255,255,255,0.1);
+           box-shadow: 0 0 40px rgba(8,7,16,0.6);
+           padding: 50px 35px;
+        }
+        button{
+            background-color: #04AA6D;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            height: 50px;
+            border-radius: 50px;
+        }
+        input{
+            display: block;
+            height: 50px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.906);
+            border-radius: 50px;
+            padding: 0 10px;
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: 300;
+        }
+        h2{
+           font-size: 32px;
+           font-weight: 500;
+           line-height: 42px;
+           text-align: center;
+        }
+        label{
+          display: flex;
+        }
+        form links 
+{
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+        
+    </style>
 </head>
 <body>
     <div>
+        <form method="post">
         <h2>Have an Account?</h2>
-        <input type="text" placeholder="Email" required>
-        <input type="text" placeholder="Password" required>
-        <input type="submit" value="Login">
-        <input type="checkbox" checked="checked" value="Remember me"> 
+        <input type="text" placeholder="Email" required><br>
+        <input type="text" placeholder="Password" required><br>
+        <button type="submit">Login</button><br>
+        <div id="links">
+          <a href="#">Forget Password</a>
+          <a href="#">Sign Up</a>
+        </div>
+        </form>
     </div>
 </body>
 </html>
