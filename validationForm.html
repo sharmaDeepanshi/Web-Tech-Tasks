@@ -3,9 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Validation Form</title>
+    <style>
+         body{
+            background-image: url(login\ background.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        div{
+            display: grid;
+            place-items: center;
+            justify-content: center;
+        }
+        form{
+            
+           height: 400px;
+           width: 400px;
+           background-color: rgba(255,255,255,0.13);
+           position: absolute;
+           transform: translate(-50%,-50%);
+           top: 50%;
+           left: 50%;
+           border-radius: 10px;
+           backdrop-filter: blur(10px);
+           border: 2px solid rgba(255,255,255,0.1);
+           box-shadow: 0 0 40px rgba(8,7,16,0.6);
+           padding: 50px 35px;
+        }
+        input[type=submit]{
+            background-color: #029f68;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 60%;
+            height: 50px;
+            border-radius: 50px;
+        }
+        input[type=submit]:hover{
+            background-color: #025f3d;
+        }
+        input{
+            display: block;
+            height: 40px;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.906);
+            border-radius: 50px;
+            padding: 0 10px;
+            margin-top: 8px;
+            font-size: 14px;
+            font-weight: 300;
+        }
+        h2{
+           font-size: 32px;
+           font-weight: 500;
+           line-height: 42px;
+           text-align: center;
+           
+        }
+        label{
+          display: flex;
+        }
+    </style>
+    <script type="text/javascript">
+        function validate(){
+            var name=document.getElementById(Name).value;
+            var EmailID=document.getElementById(Email).value;
+            var Phone=document.getElementById(phone).value;
+            var password=document.getElementById(Pwd).value;
+
+
+            if(name=="" || name.length<3 || name.length>=18){
+                alert("Enter your name properly");
+                name.focus();
+                return false;
+            }
+
+            atpos=EmailID.indexOf("@");
+            dotpos=EmailID.lastIndexOf(".");
+            if(EmailID=="" || atpos<1 || dotpos<2){
+                alert("Please provide your email");
+                EmailID.focus();
+                return false;
+            }
+            
+            if(isNaN(Phone) || Phone<6000000000 || Phone>9999999999){
+                alert("Invalid number");
+                Phone.focus();
+                return false;
+            }
+
+            if(password=="" || password.length<6){
+                alert("Password atleast 6 character long");
+                password.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
 </head>
 <body>
+    <h2>Registeration form</h2>
+    <form name="RegForm" onsubmit="return(validate())" method="post">
+           <label>Name</label>
+           <input type="text" size="65" name="Name" placeholder="Enter name"><br>
+           <label>Email</label>
+           <input type="text"  name="Email" placeholder="abc@gmail.com"><br>
+           <label>Phone No.</label>
+           <input type="text"  name="phone" placeholder="Enter phone number"><br>
+           <label>Password</label>
+           <input type="text"  name="Pwd" placeholder="Enter password"><br><br>
+           <input type="submit" value="submit" >
+    </form>
     
 </body>
 </html>
